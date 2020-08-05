@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 import uuid
 from .models import Seller, Token
 from django.http import HttpResponse
+from django.core import serializers
 
 # Create your views here.
 
@@ -15,7 +16,7 @@ def signup(request):
         pass
 
 
-def login(request, token):
+def login(request, userType, token):
     if request.method == "GET":
         if token != 'none':
             get_token = Token.objects.get(token=token)
@@ -25,7 +26,7 @@ def login(request, token):
                 seller.save()
                 get_token.delete()
                 print('User data is saved')
-                return HttpResponse('User data has been saved')
+                return render(request, 'login.html')
         else:
             return render(request, 'login.html')
     
@@ -34,15 +35,25 @@ def login(request, token):
         password = request.POST.get('password')
 
         user = Seller.objects.get(email=email)
+        print('USer Status CHECK ----------------==========', user.email)
         if user is not None:
-            request.session['is_login'] = True
-            request.session['user'] = user
-            
-            seller = Seller(email=email)
 
-            return HttpResponse('Login sucessfully')
+            if password == user.password:
+                request.session['is_login'] = True
+                request.session['id'] = user.email
+                return redirect('/sellers/profile')
 
-def authenticate(request):
+            else:
+                return redirect('auth/login/none')
+        else:
+            return HttpResponse('No user of this email')
+
+
+
+
+#Email verification route
+
+def authenticate(request, userType):
     if request.method == "GET":
         return render(request, 'signup.html')
 
@@ -62,8 +73,32 @@ def authenticate(request):
         password = request.POST.get('password')
         phone = request.POST.get('phone')
 
-        token = Token(name=name, password=password, email=email, token=token, phone=phone)
-        token.save()
+        if userType == 'buyer':
+            token = Token(name=name, password=password, email=email, token=token, phone=phone)
+            token.save()  
+            print('Token has been saved and sent')
+            return redirect('/auth/signup-seller')          
+        else if userType == 'seller':
+            address = request.POST.get('address')
+            businessaddress = request.POST.get('businessaddress')
+            productcategory = request.POST.get('productcategory')
+            display_picture = request.FILES['display_pictures']
+            wallpaper = request.FILES['wallpaper']
+            user_type = request.POST.get('user_type')
+            token = Token(name=name, password=password, email=email, token=token, phone=phone,
+            businessaddress=businessaddress, address=address, display_picture=display_picture, wallpaper=wallpaper, 
+            user_type=user_type)
+            token.save()
+            print('Token has been saved and sent')
+            return redirect('/auth/signup-seller')
+        
 
-        print('Token has been saved and sent')
-        return redirect('/auth/signup-seller')
+
+
+
+
+def logout(request):
+    if request.method == 'GET':
+        request.session['id'] = None
+        request.session['is_login'] = False
+        return redirect('/')

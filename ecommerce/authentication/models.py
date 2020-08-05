@@ -10,11 +10,19 @@ class Seller(models.Model):
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
     productcategory = models.CharField(max_length=100, null=True, blank=True)
+    display_picture = models.ImageField(upload_to="images/products", blank=True, default=True)
+    wallpaper = models.ImageField(upload_to="images/products", blank=True, default=True)
+    user_type = models.CharField(max_length=20, default='', blank=True, null=True)
 
 
-class Token(models.Model):
-    name = models.CharField(max_length=150, null=True, blank=True)
-    email = models.EmailField(blank=True, null=True)
-    phone = models.CharField(max_length=20, null=True, blank=True)
+class Token(Seller):
     token = models.CharField(max_length=250, null=True)
-    password = models.CharField(max_length=400, null=True)
+    
+
+
+class Buyer():
+    name = models.CharField(max_length=100, null=True, blank=True)
+    email = models.CharField(max_length=60 ,blank=True, null=True)
+    password = models.CharField(max_length=400, blank=True, null=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    user_type = models.CharField(max_length=30, blank=True, null=True)

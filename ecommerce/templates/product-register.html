@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- font awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <title>login</title>
+        <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+
+
+        <style>
+            html{
+                overflow-y: scroll;
+            }
+        </style>
+    </head>
+
+<body>
+
+
+    <!-- Product Register Form -->
+
+    <form method="POST" action="/sellers/register-product" enctype="multipart/form-data">
+        <div class="form-group">
+          {% csrf_token %}
+          <label for="exampleInputPassword1">prod_name</label>
+          <input type="text" class="form-control" id="prod_name" placeholder="prod_name" name="prod_name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">desc</label>
+            <input type="text" class="form-control" id="desc" name="desc" placeholder="desc">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">category</label>
+            <input type="password" class="form-control" name="category" id="category" placeholder="category">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">for_whom</label>
+            <input type="password" class="form-control" name="for_whom" id="for_whom" placeholder="for_whom">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">before_price</label>
+            <input type="password" class="form-control" id="before_price" name="before_price" placeholder="before_price">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">after_price</label>
+            <input type="password" class="form-control" id="after_price" name="after_price" placeholder="after_price">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">quantity</label>
+            <input type="password" class="form-control" id="quantity" name="quantity" placeholder="quantity">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Product Image</label>
+            <input type="file" class="form-control" id="im1" name="im1" placeholder="im1">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Product Image</label>
+            <input type="file" class="form-control" id="im2" name="im2" placeholder="im2">
+          </div><div class="form-group">
+            <label for="exampleInputPassword1">Product Image</label>
+            <input type="file" class="form-control" id="im3" name="im3" placeholder="im3">
+          </div><div class="form-group">
+            <label for="exampleInputPassword1">Product Image</label>
+            <input type="file" class="form-control" id="im4" name="im4" placeholder="im4">
+          </div><div class="form-group">
+            <label for="exampleInputPassword1">Product Image</label>
+            <input type="file" class="form-control" id="im5" name="im5" placeholder="im5">
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+</body>
+</html>
