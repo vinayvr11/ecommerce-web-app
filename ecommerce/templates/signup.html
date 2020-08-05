@@ -49,7 +49,7 @@
 <!--                            <p class="notify"><%=notify%></p>-->
 <!--                            <% } %>-->
 
-                            <form name="form" method="post" action="/auth/authenticate">
+                            <form name="form" method="post" action="/auth/authenticate/buyer">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <input type="text" id="last" class="form-control shadow-sm" placeholder="Full Name" name="name"  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">

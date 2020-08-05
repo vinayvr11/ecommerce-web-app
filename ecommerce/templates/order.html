@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- font awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <title>login</title>
+        <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+
+
+        <style>
+            html{
+                overflow-y: scroll;
+            }
+        </style>
+    </head>
+
+<body>
+
+
+    <!-- Product Register Form -->
+
+    <form method="POST" action="/orders">
+        <div class="form-group">
+          {% csrf_token %}
+          <label for="exampleInputPassword1">email</label>
+          <input type="text" class="form-control" id="prod_name" placeholder="prod_name" name="email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">useremail</label>
+            <input type="text" class="form-control" id="desc" name=useremail"" placeholder="desc">
+          </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">price</label>
+            <input type="text" class="form-control" id="desc" name="price" placeholder="desc">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">user_address</label>
+            <input type="password" class="form-control" name="user_address" id="category" placeholder="category">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">quantity</label>
+            <input type="password" class="form-control" name="quantity" id="for_whom" placeholder="for_whom">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">name</label>
+            <input type="password" class="form-control" id="before_price" name="name" placeholder="before_price">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">phone</label>
+            <input type="password" class="form-control" id="after_price" name="phone" placeholder="after_price">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">quantity</label>
+            <input type="password" class="form-control" id="quantity" name="quantity" placeholder="quantity">
+          </div>
+      
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+</body>
+</html>

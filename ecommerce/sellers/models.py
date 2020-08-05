@@ -9,6 +9,7 @@ fs = FileSystemStorage(location='/static/images/product')
 class Product(models.Model):
 
     user_id = models.CharField(max_length=300, blank=True, null=True)
+    product_id = models.CharField(max_length=300, blank=True, null=True)
     username = models.CharField(max_length=30, blank=True, null=True)
     prod_name = models.CharField(max_length=50, blank=True, null=True)
     desc = models.CharField(max_length=2500, blank=True, null=True)

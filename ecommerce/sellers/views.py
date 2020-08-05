@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Product, Buyer
+from .models import Product
+import uuid
 
 from authentication.models import Seller 
 
@@ -38,12 +39,12 @@ def registerProduct(request):
         im3 = request.FILES['im3']
         im4 = request.FILES['im4']
         im5 = request.FILES['im5']
-
+        product_id = uuid.uuid4()
 
         product = Product(user_id=email, username=seller.name, prod_name=prod_name,
         desc=desc, category=category, for_whom=for_whom, before_price=before_price,
         after_price=after_price, quantity=quantity, im1=im1, im2=im2, im3=im3, 
-        im4=im4, im5=im5, left=quantity)
+        im4=im4, im5=im5, left=quantity, product_id=product_id)
 
         product.save()
 

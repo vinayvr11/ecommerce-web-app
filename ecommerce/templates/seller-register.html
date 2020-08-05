@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- font awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <title>login</title>
+        <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+
+
+        <style>
+            html{
+                overflow-y: scroll;
+            }
+        </style>
+    </head>
+
+<body>
+
+
+    <!-- Product Register Form -->
+
+    <form method="POST" action="/auth/authenticate/seller" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="exampleInputPassword1">email</label>
+        <input type="text" class="form-control" id="desc" name="email" placeholder="email">
+      </div>
+        <div class="form-group">
+          {% csrf_token %}
+          <label for="exampleInputPassword1">name</label>
+          <input type="text" class="form-control" id="prod_name" placeholder="prod_name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">password</label>
+            <input type="text" class="form-control" id="desc" name="password" placeholder="desc">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">phone</label>
+            <input type="password" class="form-control" name="phone" id="category" placeholder="category">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">address</label>
+            <input type="password" class="form-control" name="address" id="for_whom" placeholder="for_whom">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">businessaddress</label>
+            <input type="password" class="form-control" id="before_price" name="businessaddress" placeholder="before_price">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">productcategory</label>
+            <input type="password" class="form-control" id="after_price" name="productcategory" placeholder="after_price">
+          </div>
+        
+          <div class="form-group">
+            <label for="exampleInputPassword1">display_pictures</label>
+            <input type="file" class="form-control" id="im1" name="display_pictures" placeholder="im1">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">wallpaper</label>
+            <input type="file" class="form-control" id="im2" name="wallpaper" placeholder="im2">
+          </div><div class="form-group">
+            <label for="exampleInputPassword1">user_type</label>
+            <input type="text" class="form-control" id="im3" name="user_type" placeholder="im3">
+         
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+</body>
+</html>
