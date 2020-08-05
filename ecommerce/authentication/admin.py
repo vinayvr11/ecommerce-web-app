@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import BuyersAuthentication
+from .models import Seller, Token
+
 # Register your models here.
-admin.site.register(BuyersAuthentication)
+admin.site.register(Seller)
+admin.site.register(Token)

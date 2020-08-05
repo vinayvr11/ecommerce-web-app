@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- font awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <title>login</title>
+        <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+
+
+        <style>
+            html{
+                overflow-y: scroll;
+            }
+        </style>
+    </head>
+
+<body>
+
+<!-- Start Signup Area -->
+<section class="signup-area h-100 w-100">
+    <div class="row m-0 p-0 h-100 w-100">
+        <div class="col-lg-6 col-md-12 p-0 h-sm-100 my-auto mx-auto login-img-col">
+            <div class="signup-image">
+                <img src="{% static 'images/login.jpg' %}" class="img-responsive" alt="image">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-0 my-auto mx-auto w-100">
+            <div class="signup-content h-sm-100 ml-sm-5 mx-auto w-100">
+                <div class="d-table w-100">
+                    <div class="d-table-cell w-100">
+                        <div class="signup-form w-100">
+                            <div class="logo">
+<!--                                <a href="/">-->
+<!--                                    <img src="images/logo.png" alt="image">-->
+<!--                                </a>-->
+                            </div>
+
+                            <h3>Welcome back</h3>
+                            <p>New to Significant Bots? <a href="/signup">Sign up</a></p>
+
+<!--                            <% if (notify) { %>-->
+<!--                                <p class="notify"><%=notify%></p>-->
+<!--                            <% } %>-->
+
+                            <form name="form" method="post" action="/login">  {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="hidden" name="redirect" value="<%= redirect_to %>" />
+                                </div>
+
+                               <div class="form-group">
+                                    <input type="email" id="email" class="form-control shadow-sm" placeholder="Your Email" name="email" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-control shadow-sm" placeholder="Enter Password" name="password"  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                </div>
+                                <div class="form-actions mt-5">
+                                    <button type="submit" class="btn btn-lg btn-block shadow-sm login-btn">Log In</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Login Area -->
+</body>
+</html>

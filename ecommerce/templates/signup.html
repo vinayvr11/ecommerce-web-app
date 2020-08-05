@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- font awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <title>Signup</title>
+        <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+    </head>
+
+<body>
+
+<!-- Start Signup Area -->
+<section class="signup-area h-100 w-100">
+    <div class="row m-0 p-0 h-100 w-100">
+        <div class="col-lg-6 col-md-12 p-0 h-sm-100 signup-img-col">
+            <div class="signup-image">
+                <img src="{% static 'images/sign_up.jpg' %}" class="img-responsive" alt="image">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-0 my-auto mx-auto">
+            <div class="signup-content h-sm-100 ml-sm-5">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="signup-form">
+                            <div class="logo">
+                                <a href="/">
+<!--                                    <img src="images/logo.png" alt="image">-->
+                                </a>
+                            </div>
+
+                            <h3>Open up your Free Account now</h3>
+                            <p class="mb-5">Already signed up? <a class="log-in" href="/login">Log in</a></p>
+
+<!--                            <% if (notify) { %>-->
+<!--                            <p class="notify"><%=notify%></p>-->
+<!--                            <% } %>-->
+
+                            <form name="form" method="post" action="/auth/authenticate">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" id="last" class="form-control shadow-sm" placeholder="Full Name" name="name"  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" class="form-control shadow-sm" placeholder="Your Email" name="email" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-control shadow-sm" placeholder="Your Unique Password" name="password"  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="phone" class="form-control shadow-sm" placeholder="Your phone No." name="phone"  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                </div>
+                                <div class="form-actions mt-5">
+                                    <button type="submit" class="btn btn-lg btn-block shadow-sm signup-btn">Sign Up</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Login Area -->
+</body>
+</html>
