@@ -27,9 +27,9 @@ def registerProduct(request):
         seller = Seller.objects.get(email=email)
         print("All fiels -------------======", request.FILES['im1'])
 
-        prod_name = request.POST.get('prod_name')
-        desc = request.POST.get('desc')
-        category = request.POST.get('category')
+        prod_name = request.POST.get('prod_name').lower()
+        desc = request.POST.get('desc').lower()
+        category = request.POST.get('category').lower()
         for_whom = request.POST.get('for_whom')
         before_price = request.POST.get('before_price')
         after_price = request.POST.get('after_price')

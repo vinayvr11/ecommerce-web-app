@@ -42,3 +42,10 @@ def order(request):
         category=category, product_image=product_image, order_place_time=order_place_time)
         order.save()
         return HttpResponse('Product placed')
+
+
+def search(request):
+    if request.method == "POST":
+        item = request.POST.get('search')
+        print("Your item", item)
+        return HttpResponse('We have search your item')

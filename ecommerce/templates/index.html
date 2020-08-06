@@ -109,9 +109,12 @@
                      <h4>It has never been easier.</h4>
                      <div class="product-sh">
                         <div class="col-sm-6">
+                           <form action="/search" method="POST">
+                              {% csrf_token %}
                            <div class="form-sh">
-                              <input type="text" placeholder="Search something you love" >
+                              <input type="text" placeholder="Search something you love" name="search">
                            </div>
+                        
                         </div>
                         <div class="col-sm-3">
                            <div class="form-sh">
@@ -123,8 +126,9 @@
                            </div>
                         </div>
                         <div class="col-sm-3">
-                           <div class="form-sh"> <a class="btn" href="#">Search</a> </div>
+                            <button class="btn btn-primary" type="submit">Search</button> 
                         </div>
+                     </form>
                         <p>Or simply<a href="#"> click here </a> and get inspired!</p>
                      </div>
                   </div>
